@@ -1,0 +1,1 @@
+{"version":1,"defects":{"Warning":6,"App\\Tests\\SendMailTest::testEmailsAreSentCorrectly":3},"times":{"Warning":0.004,"App\\Tests\\SendMailTest::testEmailsAreSentCorrectly":0.585}}

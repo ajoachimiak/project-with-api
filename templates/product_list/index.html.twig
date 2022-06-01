@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product list - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <div class="float-right m-2">
+        <a class="btn btn-light" href="{{ path('app_product_add') }}">Add product</a>
+    </div>
+
+    <table class="table float-left w-100">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Category</th>
+            <th scope="col">Creation date</th>
+            <th scope="col">Update date</th>
+            <th scope="col">Options</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in entityProducts %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.price }}</td>
+                <td>
+                    {% for category in product.category %}
+                        {{ category.code }} <br />
+                    {% endfor %}
+                </td>
+                <td>{{ product.creationDate|date('Y-m-d H:i') }}</td>
+                <td>{{ product.updateDate|date('Y-m-d H:i') }}</td>
+                <td>
+                    <a class="nav-link" href="{{ path('app_product_edit', {id: product.id}) }}">Edit</a>
+                    <a class="nav-link" href="{{ path('app_product_delete', {id: product.id}) }}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

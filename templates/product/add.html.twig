@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add a product - {{ parent() }}{% endblock %}
+
+{% block body %}
+
+    <h1 class="mb-2 mt-4 h4">Add new product</h1>
+
+    {{ form_start(productForm, {'attr': {'class': 'd-flex flex-column mb-4'}}) }}
+    {{ form_end(productForm) }}
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Category list - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <div class="float-right m-2">
+        <a class="btn btn-light" href="{{ path('app_category_add') }}">Add category</a>
+    </div>
+
+    <table class="table float-left w-100">
+        <thead>
+        <tr>
+            <th scope="col">Code</th>
+            <th scope="col">Creation date</th>
+            <th scope="col">Update date</th>
+            <th scope="col">Options</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for category in entityCategories %}
+            <tr>
+                <td>{{ category.code }}</td>
+                <td>{{ category.creationDate|date('Y-m-d H:i') }}</td>
+                <td>{{ category.updateDate|date('Y-m-d H:i') }}</td>
+                <td>
+                    <a class="nav-link" href="{{ path('app_category_edit', {id: category.id}) }}">Edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
